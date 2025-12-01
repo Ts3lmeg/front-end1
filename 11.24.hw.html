@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .a {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 10%;
+            }
+            .b {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 10%;
+            }
+            #text {
+                margin-left: 1%;
+                height: auto;
+                margin-right: 1%;
+            }
+            #pr {
+                margin-left: 1%;
+            }
+            #text1 {
+                margin-left: 1%;
+            }
+            body{
+                background-color: pink;
+                margin: 0%;
+                padding: 0%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="a">
+        <input type="text" id="a">
+        <input type="text" id="b">
+        <input type="text" id="c">
+        <input type="text" id="d">
+        <button onclick="Min()">Minimum</button>
+        <p id="text"></p>
+        <button onclick="even()">the sum of even numbers between 1 to 10</button>
+        <p id="text1"></p>
+        </div>
+        <div class="b">
+        <input type="text" id="p">
+        <button onclick="prime()">Prime</button>
+        <p id="pr"></p>
+        </div>
+        <script>
+            let a = document.getElementById("a");
+            let b = document.getElementById("b");
+            let c = document.getElementById("c");
+            let d = document.getElementById("d");
+            function Min(){
+                let A, B;
+                if (Number(a.value) < Number(b.value)) {
+                    A = Number(a.value);
+                }else {
+                    A = Number(b.value);
+                }
+                if (Number(c.value) < Number(d.value)) {
+                    B = Number(c.value);
+                }else {
+                    B = Number(d.value);
+                }
+                if (A < B) {
+                    if (A != '') {
+                    document.getElementById("text").innerHTML = ("The minimum is " + A);
+                    alert("the minimum is"+ A);
+                    a.value = ' ';
+                    b.value = ' ';
+                    c.value = ' ';
+                    d.value = ' ';
+                    }else {
+                        document.getElementById("text").innerHTML = ("The input is empty");
+                        alert("The input is empty");
+                    }
+                }else {
+                    if (B != '') {
+                    document.getElementById("text").innerHTML = ("The minimum is " + B);
+                    alert("the minimum is"+ B)
+                    a.value = ' ';
+                    b.value = ' ';
+                    c.value = ' ';
+                    d.value = ' ';
+                    }else {
+                        document.getElementById("text").innerHTML = ("The input is empty");
+                        alert("the input is empty")
+                }
+            }
+        }
+            function even(){
+
+                let sum = 0;
+                for (let i = 1; i <= 10; i++) { 
+                    if (i % 2 == 0) {
+                        sum += i;
+                    }
+                }
+                document.getElementById("text1").innerText = sum;
+                alert("The sum of even numbers between 1 to 10 is " + sum)
+            }
+                console.log("The odd numbers between 1 to 20:")
+                let V;
+                for (let i = 1; i <= 20; i++) {
+                    if (i % 2 == 1) {
+                        V = (i + "\n")
+                        console.log(V)
+                    }
+                }
+            
+            function prime() {
+                let p = document.getElementById("p");
+                let P = Number(p.value);  
+                let w;   
+                if (P != '') {
+                    if (P == 1){
+                        document.getElementById("pr").innerText = (P+' '+ "Is not prime")
+                        alert(P + ' Is not prime')
+                    }
+                    for (let i = 2; i < P; i++) {
+                        if (P % i == 0) {
+                            document.getElementById("pr").innerText = (P+' '+ "Is not prime");
+                            alert(P + " Is not prime")
+                            w = 1;
+                            break;
+                        }
+                    }
+                    if (w == undefined && P != 1) {
+                        document.getElementById("pr").innerText = (P+" "+ " Is prime");
+                        alert(P + " Is prime")
+                    }
+
+                }else {
+                    document.getElementById('pr').innerText = ("The input is empty")
+                    alert("The input is empty")
+                }
+                p.value =''
+                }
+        </script>
+    </body>
+    </html>
